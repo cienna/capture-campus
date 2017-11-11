@@ -1,1 +1,1 @@
-# capture-campus
+# Capture-Campus Game for Northeastern Students! 
