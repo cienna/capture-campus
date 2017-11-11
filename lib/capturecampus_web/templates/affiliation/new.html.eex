@@ -1,0 +1,5 @@
+<h2>New Affiliation</h2>
+
+<%= render "form.html", Map.put(assigns, :action, affiliation_path(@conn, :create)) %>
+
+<span><%= link "Back", to: affiliation_path(@conn, :index) %></span>

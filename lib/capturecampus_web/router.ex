@@ -17,6 +17,12 @@ defmodule CapturecampusWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/instructions", PageController, :instructions
+    resources "/affiliations", AffiliationController
+    resources "/buildings", BuildingController
+    resources "/users", UserController
+    resources "/games", GameController
+
   end
 
   # Other scopes may use custom stacks.

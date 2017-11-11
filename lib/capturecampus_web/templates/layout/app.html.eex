@@ -7,24 +7,38 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello Capturecampus!</title>
+    <title>Capturecampus!</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
   <body>
-    <div class="container">
+    <div class="container-fluid">
       <header class="header">
-        <nav role="navigation">
-          <ul class="nav nav-pills pull-right">
-            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
-          </ul>
+        <nav class="navbar navbar-dark bg-dark navbar-expand-md">
+          <div class="collapse navbar-collapse" id="main-navbar">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <%= link "Instruction", to: page_path(@conn, :instructions), class: "nav-link"%>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Exit Game</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Kill Game</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Assign Teams</a>
+              </li>
+            </ul>
+          </div>
         </nav>
-        <span class="logo"></span>
       </header>
-
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-
+      <%= if get_flash(@conn, :info) do %>
+        <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+      <% end %>
+      <%= if get_flash(@conn, :error) do %>
+        <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+      <% end %>
       <main role="main">
         <%= render @view_module, @view_template, assigns %>
       </main>

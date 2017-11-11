@@ -1,0 +1,13 @@
+<h2>Show Affiliation</h2>
+
+<ul>
+
+  <li>
+    <strong>Color:</strong>
+    <%= @affiliation.color %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: affiliation_path(@conn, :edit, @affiliation) %></span>
+<span><%= link "Back", to: affiliation_path(@conn, :index) %></span>
