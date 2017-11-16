@@ -9,11 +9,8 @@ defmodule Capturecampus.Repo.Migrations.CreateBuildings do
       add :long, :float
       add :address, :string
       add :image_path, :string
-      add :color_id, references(:affiliations, on_delete: :nothing)
 
       timestamps()
     end
-
-    create index(:buildings, [:color_id])
   end
 end
