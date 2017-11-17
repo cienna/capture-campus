@@ -2,13 +2,14 @@ defmodule Capturecampus.Games.Game do
   use Ecto.Schema
   import Ecto.Changeset
   alias Capturecampus.Games.Game
-
+  alias Capturecampus.Games
 
   schema "games" do
-    field :active?, :boolean, default: false
+    field :active?, :boolean, default: true
     field :invite_code, :string
-    field :start_time, :utc_datetime
-    field :owner, :id
+
+    belongs_to :owner, Capturecampus.Accounts.User
+    has_many :players, Capturecampus.Accounts.User
 
     timestamps()
   end
@@ -16,7 +17,30 @@ defmodule Capturecampus.Games.Game do
   @doc false
   def changeset(%Game{} = game, attrs) do
     game
-    |> cast(attrs, [:start_time, :invite_code, :active?])
-    |> validate_required([:start_time, :invite_code, :active?])
+    |> cast(attrs, [:active?])
+    |> gen_invite_code()
+    |> validate_required([:invite_code, :active?, :owner])
+  end
+
+  # code from answer on https://stackoverflow.com/questions/32001606/how-to-generate-a-random-url-safe-string-with-elixir
+  @chars "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789" |> String.split("", trim: true)
+
+  def string_of_length(length) do
+    Enum.reduce((1..length), [], fn (_i, acc) ->
+      [Enum.random(@chars) | acc]
+    end) |> Enum.join("")
+  end
+
+  # Keep generating invite codes until a new/unique one is created
+  def gen_invite_code(changeset0) do
+    code = string_of_length(4)
+
+    if Games.get_game_by_code(code) do
+      gen_invite_code(changeset0)
+    else
+      changeset = change(changeset0, %{invite_code: code})
+      apply_changes(changeset)
+      changeset
+    end
   end
 end

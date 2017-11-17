@@ -3,9 +3,8 @@ defmodule Capturecampus.Repo.Migrations.CreateGames do
 
   def change do
     create table(:games) do
-      add :start_time, :utc_datetime
-      add :invite_code, :string
-      add :active?, :boolean, default: false, null: false
+      add :invite_code, :string, null: false
+      add :active?, :boolean, default: true, null: false
       add :owner_id, references(:users, on_delete: :nothing)
 
       timestamps()

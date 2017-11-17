@@ -5,7 +5,7 @@ defmodule Capturecampus.Team.Affiliation do
 
 
   schema "affiliations" do
-    field :color, :string
+    field :color, :string, null: false
 
     timestamps()
   end

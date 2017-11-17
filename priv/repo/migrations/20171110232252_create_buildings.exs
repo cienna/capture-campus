@@ -3,11 +3,11 @@ defmodule Capturecampus.Repo.Migrations.CreateBuildings do
 
   def change do
     create table(:buildings) do
-      add :name, :string
-      add :abbrev, :string
-      add :lat, :float
-      add :long, :float
-      add :address, :string
+      add :name, :string, null: false
+      add :abbrev, :string, null: false
+      add :lat, :float, null: false
+      add :long, :float, null: false
+      add :address, :string, null: false
       add :image_path, :string
 
       timestamps()

@@ -7,7 +7,8 @@ defmodule Capturecampus.Account.User do
   schema "users" do
     field :owner?, :boolean, default: false
     field :username, :string
-    field :team, :id
+
+    belongs_to :team, Affiliation
 
     timestamps()
   end

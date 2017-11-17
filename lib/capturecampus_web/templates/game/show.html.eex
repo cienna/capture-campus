@@ -3,11 +3,6 @@
 <ul>
 
   <li>
-    <strong>Start time:</strong>
-    <%= @game.start_time %>
-  </li>
-
-  <li>
     <strong>Invite code:</strong>
     <%= @game.invite_code %>
   </li>

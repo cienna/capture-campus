@@ -3,7 +3,6 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Start time</th>
       <th>Invite code</th>
       <th>Active?</th>
 
@@ -13,7 +12,6 @@
   <tbody>
 <%= for game <- @games do %>
     <tr>
-      <td><%= game.start_time %></td>
       <td><%= game.invite_code %></td>
       <td><%= game.active? %></td>
 
