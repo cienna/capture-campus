@@ -7,6 +7,8 @@ defmodule CapturecampusWeb.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug :fetch_user
+    plug :fetch_game
   end
 
   pipeline :api do
@@ -22,7 +24,8 @@ defmodule CapturecampusWeb.Router do
     resources "/buildings", BuildingController
     resources "/users", UserController
     resources "/games", GameController
-
+    post "/sessions", SessionController, :login
+    delete "/sessions", SessionController, :logout
   end
 
   # Other scopes may use custom stacks.
