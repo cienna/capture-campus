@@ -16,7 +16,7 @@ config :capturecampus, CapturecampusWeb.Endpoint,
   render_errors: [view: CapturecampusWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Capturecampus.PubSub,
            adapter: Phoenix.PubSub.PG2],
-  api_key: ""
+  api_key: "AIzaSyBgUYlwxJlJByt3vEYoBkK6DShhg1L9l8o"
 
 # Configures Elixir's Logger
 config :logger, :console,

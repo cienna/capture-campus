@@ -1,5 +1,7 @@
 defmodule CapturecampusWeb.Router do
   use CapturecampusWeb, :router
+  import CapturecampusWeb.Plugs
+
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -20,6 +22,10 @@ defmodule CapturecampusWeb.Router do
 
     get "/", PageController, :index
     get "/instructions", PageController, :instructions
+    get "/join", PageController, :join
+    get "/new/game", PageController, :newgame
+    get "/new/game/setup", PageController, :newgamesetup
+    get "/user/game/landing", PageController, :gamelanding
     resources "/affiliations", AffiliationController
     resources "/buildings", BuildingController
     resources "/users", UserController
