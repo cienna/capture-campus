@@ -1,18 +1,27 @@
 defmodule CapturecampusWeb.SessionController do
   use CapturecampusWeb, :controller
 
-  alias Capturecampus.Accounts
+  alias Capturecampus.Account
   alias Capturecampus.Games
 
-  def login(conn, %{"username" => username, "invite_code" => code}) do
-    user = Accounts.get_user_by_username(username)
-    game = Games.get_game_by_code(code)
+  def login(conn, %{"username" => username}) do
+    user = Account.get_user_by_username(username)
 
-    if user && game do
+    if user do
       conn
       |> put_session(:user_id, user.id)
+      |> put_flash(:info, "Hello #{user.username}.")
+      |> redirect(to: page_path(conn, :next_page))
+    end
+  end
+
+  def join_game(conn, %{"invite_code" => code}) do
+    game = Games.get_game_by_code(code)
+
+    if game do
+      conn
       |> put_session(:game_id, game.id)
-      |> put_flash(:info, "Joined game #{game.invite_code} as #{user.username}")
+      |> put_flash(:info, "Joined game #{game.invite_code}.")
       |> redirect(to: page_path(conn, :lobby))
     end
   end
