@@ -5,14 +5,14 @@
     </div>
   <% end %>
 
+  <%= hidden_input f, :owner_id, value: @current_user.id %>
+
   <div class="form-group">
     <%= text_input f, :invite_code, class: "form-control", readonly:   "readonly" %>
     <%= error_tag f, :invite_code %>
   </div>
 
   <%= checkbox f, :active?, checked: true, type: "hidden" %>
-
-  <%= hidden_input f, :owner_id, value: @current_user.id %>
 
   <div class="form-group">
     <%= submit "Start!", class: "btn btn-danger" %>

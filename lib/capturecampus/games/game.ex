@@ -32,25 +32,25 @@ defmodule Capturecampus.Games.Game do
   end
 
   # Keep generating invite codes until a new/unique one is created
-  def gen_invite_code(changeset0) do
+  def gen_invite_code(changeset) do
     code = string_of_length(4)
 
     if Games.get_game_by_code(code) do
-      gen_invite_code(changeset0)
+      gen_invite_code(changeset)
     else
-      changeset= change(changeset0, %{invite_code: code})
+      changeset= change(changeset, %{invite_code: code})
       apply_changes(changeset)
       changeset
     end
   end
 
-  def invite_exists(changeset0, invite_code) do
+  def invite_exists(changeset, invite_code) do
         if String.valid?(invite_code) do
-          changeset= change(changeset0, %{invite_code: invite_code})
+          changeset= change(changeset, %{invite_code: invite_code})
           apply_changes(changeset)
           changeset
         else
-          gen_invite_code(changeset0)
+          gen_invite_code(changeset)
         end
   end
 end
