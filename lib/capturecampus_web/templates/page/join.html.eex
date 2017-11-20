@@ -1,0 +1,12 @@
+<div class="container-fluid">
+    <br />
+    <div class="card">
+    	<img class="card-img-top" src="http://cdn.lightgalleries.net/4bd5ebfc5c408/images/Commercial_Northeastern_080-2.jpg" alt="Northeastern" alt="Responsive image">
+  		<div class="card-body">
+    		<h4 class="card-title">Join A Game!</h4>
+    		<p class="card-text">Please enter a username and the game invite Code!</p>
+  		</div>
+  		<div class="card-body">
+    		<%= render "formPlayer.html", Map.put(assigns, :action, user_path(@conn, :create)) %>
+  		</div>
+	</div>
