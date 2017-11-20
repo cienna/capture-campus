@@ -21,7 +21,7 @@ defmodule CapturecampusWeb.GameController do
         |> put_flash(:info, "Game created successfully.")
         |> put_session(:game_id, game.id)
         |> put_flash(:info, "Joined game #{game.invite_code}.")
-        |> redirect(to: page_path(conn, :gamelanding))
+        |> redirect(to: page_path(conn, :newgamesetup))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end

@@ -8,7 +8,6 @@ defmodule Capturecampus.Games.Game do
     field :active?, :boolean, default: true
     field :invite_code, :string
 
-    belongs_to :owner, Capturecampus.Account.User
     has_many :players, Capturecampus.Account.User
 
     timestamps()
@@ -17,9 +16,9 @@ defmodule Capturecampus.Games.Game do
   @doc false
   def changeset(%Game{} = game, attrs) do
     game
-    |> cast(attrs, [:active?])
+    |> cast(attrs, [])
     |> invite_exists(:invite_code)
-    |> validate_required([:invite_code, :active?, :owner])
+    |> validate_required([:invite_code, :active?])
   end
 
   # code from answer on https://stackoverflow.com/questions/32001606/how-to-generate-a-random-url-safe-string-with-elixir
@@ -32,25 +31,37 @@ defmodule Capturecampus.Games.Game do
   end
 
   # Keep generating invite codes until a new/unique one is created
-  def gen_invite_code(changeset) do
+  def gen_invite_code(changeset0) do
     code = string_of_length(4)
+    IO.puts("gen code")
 
     if Games.get_game_by_code(code) do
-      gen_invite_code(changeset)
+      IO.puts("repeat code; retry")
+      gen_invite_code(changeset0)
     else
-      changeset= change(changeset, %{invite_code: code})
+      IO.puts("OK new code")
+      changeset = change(changeset0, %{invite_code: code})
       apply_changes(changeset)
       changeset
     end
   end
 
-  def invite_exists(changeset, invite_code) do
-        if String.valid?(invite_code) do
-          changeset= change(changeset, %{invite_code: invite_code})
-          apply_changes(changeset)
-          changeset
-        else
-          gen_invite_code(changeset)
-        end
+  def invite_exists(changeset0, invite_code) do
+    #    IO.puts(invite_code)
+    {_, test} = fetch_field(changeset0, :invite_code)
+    if test do
+      IO.puts(test)
+    else
+      IO.puts("nil")
+    end
+    if test do
+      IO.puts("code exists")
+      changeset= change(changeset0, %{invite_code: invite_code})
+      apply_changes(changeset)
+      changeset
+    else
+      IO.puts("new code")
+      gen_invite_code(changeset0)
+    end
   end
 end

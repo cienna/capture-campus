@@ -5,6 +5,8 @@
     </div>
   <% end %>
 
+  <%= hidden_input f, :game_id, value: @current_game.id %>
+
   <div class="form-group">
     <%= text_input f, :username, class: "form-control", placeholder: "Username" %>
     <%= error_tag f, :username %>

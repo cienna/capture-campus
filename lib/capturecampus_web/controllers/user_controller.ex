@@ -21,7 +21,7 @@ defmodule CapturecampusWeb.UserController do
         |> put_flash(:info, "User created successfully.")
         |> put_session(:user_id, user.id)
         |> put_flash(:info, "Hello #{user.username}.")
-        |> redirect(to: page_path(conn, :newgamesetup))
+        |> redirect(to: page_path(conn, :gamelanding))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end

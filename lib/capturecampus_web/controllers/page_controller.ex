@@ -13,17 +13,16 @@ defmodule CapturecampusWeb.PageController do
   end
 
   def newgame(conn, _params) do
-    changeset = Capturecampus.Account.change_user(%Capturecampus.Account.User{})
-    render(conn, "newgame.html", changeset: changeset)
-  end
-
-  def newgamesetup(conn, _params) do
     changeset = Capturecampus.Games.change_game(%Capturecampus.Games.Game{})
     render(conn, "newgamename.html", changeset: changeset)
   end
 
+  def newgamesetup(conn, _params) do
+    changeset = Capturecampus.Account.change_user(%Capturecampus.Account.User{})
+    render(conn, "newgame.html", changeset: changeset)
+  end
+
   def gamelanding(conn, _params) do
     render conn, "gamelanding.html"
-    |>Capturecampus.Repo.preload([:user, :game])
   end
 end
