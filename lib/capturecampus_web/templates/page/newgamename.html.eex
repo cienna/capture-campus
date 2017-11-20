@@ -8,10 +8,6 @@
   		<div class="card-body">
           <br />
           <%= if @current_user.owner? do %>
-          <div class="input-group">
-  					<input type="text" class="form-control" placeholder="Game Name:" id="game-name" aria-describedby="basic-addon3">
-			    </div>
-          <br />
           <%= render "formCreate.html", Map.put(assigns, :action, game_path(@conn, :create)) %>
           <% else %>
             <%= form_for @conn, session_path(@conn, :join_game), [as: "user"], fn f -> %>

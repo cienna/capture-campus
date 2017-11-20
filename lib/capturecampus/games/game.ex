@@ -8,8 +8,8 @@ defmodule Capturecampus.Games.Game do
     field :active?, :boolean, default: true
     field :invite_code, :string
 
-    belongs_to :owner, Capturecampus.Accounts.User
-    has_many :players, Capturecampus.Accounts.User
+    belongs_to :owner, Capturecampus.Account.User
+    has_many :players, Capturecampus.Account.User
 
     timestamps()
   end
@@ -18,7 +18,7 @@ defmodule Capturecampus.Games.Game do
   def changeset(%Game{} = game, attrs) do
     game
     |> cast(attrs, [:active?])
-    |> gen_invite_code()
+    |> invite_exists(:invite_code)
     |> validate_required([:invite_code, :active?, :owner])
   end
 
@@ -38,9 +38,19 @@ defmodule Capturecampus.Games.Game do
     if Games.get_game_by_code(code) do
       gen_invite_code(changeset0)
     else
-      changeset = change(changeset0, %{invite_code: code})
+      changeset= change(changeset0, %{invite_code: code})
       apply_changes(changeset)
       changeset
     end
+  end
+
+  def invite_exists(changeset0, invite_code) do
+        if String.valid?(invite_code) do
+          changeset= change(changeset0, %{invite_code: invite_code})
+          apply_changes(changeset)
+          changeset
+        else
+          gen_invite_code(changeset0)
+        end
   end
 end

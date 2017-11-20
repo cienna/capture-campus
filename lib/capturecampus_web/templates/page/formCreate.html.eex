@@ -10,7 +10,6 @@
     <%= error_tag f, :invite_code %>
   </div>
 
-  <
   <%= checkbox f, :active?, checked: true, type: "hidden" %>
 
   <%= hidden_input f, :owner_id, value: @current_user.id %>
