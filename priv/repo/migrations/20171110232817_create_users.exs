@@ -6,6 +6,7 @@ defmodule Capturecampus.Repo.Migrations.CreateUsers do
       add :username, :string, null: false
       add :owner?, :boolean, default: false, null: false
       add :team_id, references(:affiliations, on_delete: :nothing)
+      add :game_id, references(:games, on_delete: :delete_all)
 
       timestamps()
     end
