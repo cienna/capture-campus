@@ -19,7 +19,9 @@ defmodule CapturecampusWeb.UserController do
       {:ok, user} ->
         conn
         |> put_flash(:info, "User created successfully.")
-        |> redirect(to: user_path(conn, :show, user))
+        |> put_session(:user_id, user.id)
+        |> put_flash(:info, "Hello #{user.username}.")
+        |> redirect(to: page_path(conn, :gamelanding))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
@@ -55,6 +57,9 @@ defmodule CapturecampusWeb.UserController do
 
     conn
     |> put_flash(:info, "User deleted successfully.")
-    |> redirect(to: user_path(conn, :index))
+    |> put_session(:user_id, nil)
+    |> put_session(:game_id, nil)
+    |> put_flash(:info, "Disconnected from game.")
+    |> redirect(to: page_path(conn, :index))
   end
 end

@@ -5,18 +5,16 @@
     </div>
   <% end %>
 
+  <%= hidden_input f, :game_id, value: @current_game.id %>
+
   <div class="form-group">
     <%= text_input f, :username, class: "form-control", placeholder: "Username" %>
     <%= error_tag f, :username %>
   </div>
 
-  <div class="form-group">
-    <%= label f, :owner?, class: "control-label" %>
-    <%= checkbox f, :owner?, class: "checkbox" %>
-    <%= error_tag f, :owner? %>
-  </div>
+  <%= checkbox f, :owner?, checked: true, type: "hidden" %>
 
   <div class="form-group">
-    <%= submit "Submit", class: "btn btn-primary" %>
+    <%= submit "Next!", class: "btn btn-danger" %>
   </div>
 <% end %>

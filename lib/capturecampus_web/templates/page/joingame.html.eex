@@ -1,0 +1,11 @@
+<div class="container-fluid">
+    <div class="card">
+      <img class="card-img-top" src="http://i149.photobucket.com/albums/s71/dylancolesss/Commercial_Northeastern_080-2.jpg" border="0" alt="Northeastern" alt="Responsive image"/>
+  		<div class="card-body">
+    		<h4 class="card-title">Join The Game</h4>
+    		<p class="card-text">Please enter a username</p>
+  		</div>
+  		<div class="card-body">
+    		  <%= render "formPlayer.html", Map.put(assigns, :action, user_path(@conn, :create)) %>
+  		</div>
+	</div>

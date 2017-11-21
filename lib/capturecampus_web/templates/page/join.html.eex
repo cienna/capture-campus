@@ -1,0 +1,19 @@
+<div class="container-fluid">
+    <br />
+    <div class="card">
+    	<img class="card-img-top" src="http://i149.photobucket.com/albums/s71/dylancolesss/Commercial_Northeastern_080-2.jpg" border="0" alt="Northeastern" alt="Responsive image"/>
+  		<div class="card-body">
+    		<h4 class="card-title">Join A Game!</h4>
+    		<p class="card-text">Please enter a username and the game invite Code!</p>
+  		</div>
+  		<div class="card-body">
+        <%= form_for @conn, session_path(@conn, :login), [as: "game"], fn f -> %>
+          <div class="form-group">
+            <input type="text" placeholder="Game Invite Code" class="form-control" name="invite_code">
+          </div>
+          <div class="form-group">
+            <input type="submit" value="Join!" class= "btn btn-dark">
+          </div>
+       <% end %>
+  		</div>
+	</div>

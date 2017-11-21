@@ -1,5 +1,13 @@
 <div class="container-fluid">
-  <div>
-    <h1>Welcome to Capture Northeastern!</h1>
-  </div>
-</div>
+ 	<div class="card">
+    	<img class="card-img-top" src="http://cdn.lightgalleries.net/4bd5ebfc5c408/images/Commercial_Northeastern_080-2.jpg" alt="Northeastern" alt="Responsive image">
+  		<div class="card-body">
+    		<h4 class="card-title" style="text-align: center;">Capture Northeastern!</h4>
+    		<p class="card-text" style="text-align: center;">Welcome to the capture the flag game for new Northeastern students!</p>
+  		</div>
+  		<div class="card-body" style="margin: auto;">
+    			<%= link "New Game!", to: page_path(@conn, :newgame), class: "btn btn-danger"%>
+    			<%= link "Join a Game!", to: page_path(@conn, :join), class: "btn btn-dark"%>
+    			<%= link "How to Play", to: page_path(@conn, :instructions), class: "btn btn-light"%>
+  		</div>
+	</div>

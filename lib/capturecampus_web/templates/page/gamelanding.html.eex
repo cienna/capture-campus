@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <br />
+    <div class="card">
+    	<img class="card-img-top" src="http://cdn.lightgalleries.net/4bd5ebfc5c408/images/Commercial_Northeastern_080-2.jpg" alt="Northeastern" alt="Responsive image">
+  		<div class="card-body">
+    		<h1 class="card-title" style="text-align: center;">Game Title!</h1>
+    		<p class="card-text" style="text-align: center;">Welcome "Username"</p>
+  		</div>
+        <div class="card-body" style="margin: auto;">
+            <button class="btn btn-danger">Capture!</button>
+            <button class="btn btn-danger">Attack!</button>
+        </div>
+        <div class="card" style=" margin: auto; width: 20rem;">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><img src="http://i149.photobucket.com/albums/s71/dylancolesss/red-dot.png" border="0" alt=" photo red-dot.png" style="width: 7%;" /> West Village H</li>
+                <li class="list-group-item"><img src="http://i149.photobucket.com/albums/s71/dylancolesss/white-dot.png" border="0" alt=" photo white-dot.png" style="width: 7%;" /> International Village</li>
+                <li class="list-group-item"><img src="http://i149.photobucket.com/albums/s71/dylancolesss/red-dot.png" border="0" alt=" photo red-dot.png" style="width: 7%;" /> Curry Student Center</li>
+                <li class="list-group-item"><img src="http://i149.photobucket.com/albums/s71/dylancolesss/black-dot.png" border="0" alt=" photo black-dot.png" style="width: 7%;" /> Marino Center</li>
+            </ul>
+        </div>
+  		<div class="card-body">
+
+  		</div>
+	</div>

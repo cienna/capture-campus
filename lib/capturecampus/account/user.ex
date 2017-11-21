@@ -2,6 +2,8 @@ defmodule Capturecampus.Account.User do
   use Ecto.Schema
   import Ecto.Changeset
   alias Capturecampus.Account.User
+  alias Capturecampus.Games.Game
+  alias Capturecampus.Teams.Affiliation
 
 
   schema "users" do
@@ -9,6 +11,7 @@ defmodule Capturecampus.Account.User do
     field :username, :string
 
     belongs_to :team, Affiliation
+    belongs_to :game, Game
 
     timestamps()
   end

@@ -1,4 +1,4 @@
-defmodule Capturecampus.Plugs do
+defmodule CapturecampusWeb.Plugs do
   import Plug.Conn
 
   def fetch_user(conn, _opts) do

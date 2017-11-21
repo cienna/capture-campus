@@ -19,7 +19,9 @@ defmodule CapturecampusWeb.GameController do
       {:ok, game} ->
         conn
         |> put_flash(:info, "Game created successfully.")
-        |> redirect(to: game_path(conn, :show, game))
+        |> put_session(:game_id, game.id)
+        |> put_flash(:info, "Joined game #{game.invite_code}.")
+        |> redirect(to: page_path(conn, :newgamesetup))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
@@ -49,12 +51,26 @@ defmodule CapturecampusWeb.GameController do
     end
   end
 
+  def join(conn, %{"invite_code" => invite_code}) do
+    game = Games.get_game_by_code!(invite_code)
+
+    if game do
+      conn
+      |> put_session(:game_id, game.id)
+      |> put_flash(:info, "Joined game #{game.invite_code}.")
+      |> redirect(to: page_path(conn, :joingamesetup))
+    end
+  end
+
   def delete(conn, %{"id" => id}) do
     game = Games.get_game!(id)
     {:ok, _game} = Games.delete_game(game)
 
     conn
     |> put_flash(:info, "Game deleted successfully.")
-    |> redirect(to: game_path(conn, :index))
+    |> put_session(:user_id, nil)
+    |> put_session(:game_id, nil)
+    |> put_flash(:info, "Disconnected from game.")
+    |> redirect(to: page_path(conn, :index))
   end
 end

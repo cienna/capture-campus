@@ -37,6 +37,8 @@ defmodule Capturecampus.Games do
   """
   def get_game!(id), do: Repo.get!(Game, id)
 
+  def get_game_by_code!(code), do: Repo.get_by!(Game, invite_code: code)
+
   def get_game_by_code(code), do: Repo.get_by(Game, invite_code: code)
 
   @doc """
