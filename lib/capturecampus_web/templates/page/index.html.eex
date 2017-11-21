@@ -11,3 +11,6 @@
     			<%= link "How to Play", to: page_path(@conn, :instructions), class: "btn btn-light"%>
   		</div>
 	</div>
+<div id="app">
+  <my-app><my-app>
+</div>

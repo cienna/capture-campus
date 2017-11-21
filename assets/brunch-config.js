@@ -53,6 +53,10 @@ exports.config = {
         includePaths: ["node_modules/bootstrap/scss"],
         precision: 8
       }
+    },
+    vue: {
+      extractCSS: true,
+      out: '../priv/static/css/components.css'
     }
   },
 
