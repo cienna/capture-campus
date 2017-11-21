@@ -25,6 +25,7 @@ defmodule CapturecampusWeb.Router do
     get "/join", PageController, :join
     get "/new/game", PageController, :newgame
     get "/new/game/setup", PageController, :newgamesetup
+    get "/join/game/setup", PageController, :joingamesetup
     get "/user/game/landing", PageController, :gamelanding
     resources "/affiliations", AffiliationController
     resources "/buildings", BuildingController

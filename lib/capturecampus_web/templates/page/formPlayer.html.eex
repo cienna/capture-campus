@@ -10,9 +10,7 @@
     <%= error_tag f, :username %>
   </div>
 
-  <%= checkbox f, :owner?, checked: false, type: "hidden" %>
-
   <div class="form-group">
-    <%= submit "Next!", class: "btn btn-danger" %>
+    <%= submit "Join!", class: "btn btn-dark" %>
   </div>
 <% end %>

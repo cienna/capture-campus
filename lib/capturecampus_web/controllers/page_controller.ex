@@ -22,6 +22,11 @@ defmodule CapturecampusWeb.PageController do
     render(conn, "newgame.html", changeset: changeset)
   end
 
+  def joingamesetup(conn, _params) do
+    changeset = Capturecampus.Account.change_user(%Capturecampus.Account.User{})
+    render(conn, "joingame.html", changeset: changeset)
+  end
+
   def gamelanding(conn, _params) do
     render conn, "gamelanding.html"
   end
