@@ -28,6 +28,7 @@ defmodule CapturecampusWeb.PageController do
   end
 
   def gamelanding(conn, _params) do
-    render conn, "gamelanding.html"
+    buildings = Capturecampus.Campus.list_buildings()
+    render(conn, "gamelanding.html", buildings: buildings)
   end
 end
