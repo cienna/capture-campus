@@ -12,8 +12,8 @@ config :logger, level: :warn
 # Configure your database
 config :capturecampus, Capturecampus.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: "campus",
+  password: "ahpalah0Xu7u",
   database: "capturecampus_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
