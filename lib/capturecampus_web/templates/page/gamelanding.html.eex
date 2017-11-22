@@ -6,19 +6,13 @@
     		<h1 class="card-title" style="text-align: center;">Welcome To Capture the Campus!</h1>
         <h3 class="card-text" style="text-align: center;">Game Code: <%= @current_game.invite_code %></h3>
     		<p class="card-text" style="text-align: center;">Welcome <%= @current_user.username %></p>
+        <p id="info" class="card-text" style="text-align: center;"></p>
   		</div>
         <div id="player-buttons" class="card-body" style="margin: auto;">
-            <button class="btn btn-danger">Capture!</button>
-            <button class="btn btn-danger">Attack!</button>
+            <button id="capture" class="btn btn-danger">Capture!</button>
+            <button id="attack" class="btn btn-danger">Attack!</button>
         </div>
-        <div id="buildings" class="card" style=" margin: auto; width: 20rem;">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item"><img src="http://i149.photobucket.com/albums/s71/dylancolesss/red-dot.png" border="0" alt=" photo red-dot.png" style="width: 7%;" /> West Village H</li>
-                <li class="list-group-item"><img src="http://i149.photobucket.com/albums/s71/dylancolesss/white-dot.png" border="0" alt=" photo white-dot.png" style="width: 7%;" /> International Village</li>
-                <li class="list-group-item"><img src="http://i149.photobucket.com/albums/s71/dylancolesss/red-dot.png" border="0" alt=" photo red-dot.png" style="width: 7%;" /> Curry Student Center</li>
-                <li class="list-group-item"><img src="http://i149.photobucket.com/albums/s71/dylancolesss/black-dot.png" border="0" alt=" photo black-dot.png" style="width: 7%;" /> Marino Center</li>
-            </ul>
-        </div>
+      <%= render "builinglist.html", Map.put(assigns, :action, building_path(@conn, :index)) %>
   		<div class="card-body">
 
   		</div>

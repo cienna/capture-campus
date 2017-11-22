@@ -6,6 +6,7 @@
   <% end %>
 
   <div class="form-group">
+    <% label f, :invite_code, class: "control-label" %>
     <%= text_input f, :invite_code, class: "form-control", readonly:   "readonly" %>
     <%= error_tag f, :invite_code %>
   </div>

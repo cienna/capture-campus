@@ -33,3 +33,21 @@ new Vue({
     return createElement(MyApp, {})
   }
 });
+
+let info = $('#info');
+var ulat;
+var ulong;
+
+function getLocattion() {
+  if (navigator.geolocation) {
+    navigator.geolocation.watchPosition(setuserloc);
+  } else {
+    info.innerHTML = "Geolocation is not supported by this browser";
+  }
+}
+
+function setuserloc(position) {
+  ulat = position.coords.latitude;
+  ulong = position.coords.longitude;
+  info.innerHTML = <i>tracking location</i>
+}
