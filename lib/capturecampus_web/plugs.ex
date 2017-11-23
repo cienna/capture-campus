@@ -20,4 +20,14 @@ defmodule CapturecampusWeb.Plugs do
       assign(conn, :current_game, nil)
     end
   end
+
+  def fetch_team(conn, _opts) do
+    team_id = get_session(conn, :team_id)
+    if team_id do
+      team = Capturecampus.Team.get_affiliation!(team_id)
+      assign(conn, :current_team, team)
+    else
+      assign(conn, :current_team, nil)
+    end
+  end
 end

@@ -34,20 +34,35 @@ new Vue({
   }
 });
 
-let info = $('#info');
+var info = document.getElementById("info");
 var ulat;
 var ulong;
 
-function getLocattion() {
-  if (navigator.geolocation) {
-    navigator.geolocation.watchPosition(setuserloc);
-  } else {
-    info.innerHTML = "Geolocation is not supported by this browser";
-  }
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(showPosition);
+    } else {
+        info.innerHTML = "Geolocation is not supported by this browser.";}
+    }
+
+function showPosition(position) {
+    ulat = position.coords.latitude;
+    ulong = position.coords.longitude;
+    info.innerHTML = "tracking location";
 }
 
-function setuserloc(position) {
-  ulat = position.coords.latitude;
-  ulong = position.coords.longitude;
-  info.innerHTML = <i>tracking location</i>
-}
+// function getLocattion() {
+//   if (navigator.geolocation) {
+//     navigator.geolocation.watchPosition(setuserloc);
+//   } else {
+//     info.innerHTML = "Geolocation is not supported by this browser";
+//   }
+// }
+//
+// function setuserloc(position) {
+//   ulat = position.coords.latitude;
+//   ulong = position.coords.longitude;
+//   info.innerHTML = "tracking location"
+// }
+
+$(getLocattion);

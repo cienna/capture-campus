@@ -37,6 +37,8 @@ defmodule Capturecampus.Team do
   """
   def get_affiliation!(id), do: Repo.get!(Affiliation, id)
 
+  def get_by_color(color), do: Repo.get_by(Affiliation, color: color)
+
   @doc """
   Creates a affiliation.
 

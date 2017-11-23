@@ -1,6 +1,9 @@
-<div id="buildings" class="card" style=" margin: auto; width: 20rem;">
+<div class="card" style=" margin: auto; width: 20rem;">
   <ul class="list-group list-group-flush">
     <%= for building <- @buildings do %>
+        <!-- <li class="list-group-item">
+          {{ building.text }}
+        </li> -->
       <li class="list-group-item">
         <img src="http://i149.photobucket.com/albums/s71/dylancolesss/white-dot.png" border="0" alt=" photo white-dot.png" style="width: 7%;" />
         <%= building.name %>

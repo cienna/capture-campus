@@ -19,6 +19,7 @@ defmodule Capturecampus.Games do
   """
   def list_games do
     Repo.all(Game)
+    |> Repo.preload(:players)
   end
 
   @doc """
@@ -35,11 +36,11 @@ defmodule Capturecampus.Games do
       ** (Ecto.NoResultsError)
 
   """
-  def get_game!(id), do: Repo.get!(Game, id)
+  def get_game!(id), do: Repo.get!(Game, id) |> Repo.preload(:players)
 
-  def get_game_by_code!(code), do: Repo.get_by!(Game, invite_code: code)
+  def get_game_by_code!(code), do: Repo.get_by!(Game, invite_code: code) |> Repo.preload(:players)
 
-  def get_game_by_code(code), do: Repo.get_by(Game, invite_code: code)
+  def get_game_by_code(code), do: Repo.get_by(Game, invite_code: code) |> Repo.preload(:players)
 
   @doc """
   Creates a game.
@@ -55,6 +56,7 @@ defmodule Capturecampus.Games do
   """
   def create_game(attrs \\ %{}) do
     %Game{}
+    |> Repo.preload(:players)
     |> Game.changeset(attrs)
     |> Repo.insert()
   end
@@ -73,6 +75,7 @@ defmodule Capturecampus.Games do
   """
   def update_game(%Game{} = game, attrs) do
     game
+    |> Repo.preload(:players)
     |> Game.changeset(attrs)
     |> Repo.update()
   end

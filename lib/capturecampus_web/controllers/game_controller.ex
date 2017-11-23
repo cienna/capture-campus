@@ -3,6 +3,7 @@ defmodule CapturecampusWeb.GameController do
 
   alias Capturecampus.Games
   alias Capturecampus.Games.Game
+  alias Capturecampus.Team
 
   def index(conn, _params) do
     games = Games.list_games()
@@ -15,10 +16,12 @@ defmodule CapturecampusWeb.GameController do
   end
 
   def create(conn, %{"game" => game_params}) do
+    black = Team.get_by_color("black")
     case Games.create_game(game_params) do
       {:ok, game} ->
         conn
         |> put_flash(:info, "Game created successfully.")
+        |> put_session(:team_id, black.id)
         |> put_session(:game_id, game.id)
         |> put_flash(:info, "Joined game #{game.invite_code}.")
         |> redirect(to: page_path(conn, :newgamesetup))

@@ -19,6 +19,15 @@ defmodule Capturecampus.Account do
   """
   def list_users do
     Repo.all(User)
+    |> Repo.preload([:team, :game])
+
+  end
+
+  def check_team(game_id, team_id) do
+    # busers = Repo.all(from u in User, where: [ game_id: ^game_id, team_id: ^team_id ])
+    # Repo.aggregate(busers, :count, :id)
+    Repo.one(from u in User, select: count("*"), where: [ game_id: ^game_id, team_id: ^team_id ])
+    |> Repo.preload([:team, :game])
   end
 
   @doc """
@@ -37,6 +46,8 @@ defmodule Capturecampus.Account do
   """
   def get_user!(id), do: Repo.get!(User, id)
 
+
+
   @doc """
   Creates a user.
 
@@ -51,6 +62,7 @@ defmodule Capturecampus.Account do
   """
   def create_user(attrs \\ %{}) do
     %User{}
+    |> Repo.preload([:team, :game])
     |> User.changeset(attrs)
     |> Repo.insert()
   end
@@ -69,6 +81,7 @@ defmodule Capturecampus.Account do
   """
   def update_user(%User{} = user, attrs) do
     user
+    |> Repo.preload([:team, :game])
     |> User.changeset(attrs)
     |> Repo.update()
   end

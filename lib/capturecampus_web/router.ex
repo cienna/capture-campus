@@ -11,6 +11,7 @@ defmodule CapturecampusWeb.Router do
     plug :put_secure_browser_headers
     plug :fetch_user
     plug :fetch_game
+    plug :fetch_team
   end
 
   pipeline :api do

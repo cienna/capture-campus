@@ -6,6 +6,7 @@
   <% end %>
 
   <%= hidden_input f, :game_id, value: @current_game.id %>
+  <%= hidden_input f, :team_id, value: @current_team.id %>
 
   <div class="form-group">
     <%= text_input f, :username, class: "form-control", placeholder: "Username" %>
