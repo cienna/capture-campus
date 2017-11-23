@@ -1,13 +1,11 @@
 <template>
-  <div class="card" style=" margin: auto; width: 20rem;">
+  <div id="buildinglist" class="card">
     <ul id="buildings" v-for:"building in buildings" class="list-group list-group-flush">
-      {{ building.text }}
+      {{ building }}
     </ul>
   </div>
 </template>
 
 <script>
-  var buildings = new Vue({
-    el: '#'
-  })
+
 </script>

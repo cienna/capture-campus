@@ -3,7 +3,7 @@ defmodule Capturecampus.Account.User do
   import Ecto.Changeset
   alias Capturecampus.Account.User
   alias Capturecampus.Games.Game
-  alias Capturecampus.Teams.Affiliation
+  alias Capturecampus.Team.Affiliation
 
 
   schema "users" do

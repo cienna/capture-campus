@@ -15,24 +15,6 @@
   <body>
     <div class="container-fluid">
       <header class="header">
-        <nav class="navbar navbar-dark bg-dark navbar-expand-md">
-          <div class="collapse navbar-collapse" id="main-navbar">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
-                <%= link "Instruction", to: page_path(@conn, :instructions), class: "nav-link"%>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">Exit Game</a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">Kill Game</a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">Assign Teams</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
       </header>
       <%= if get_flash(@conn, :info) do %>
         <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>

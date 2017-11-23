@@ -10,7 +10,6 @@
   		</div>
         <div id="player-buttons" class="card-body" style="margin: auto;">
             <button id="capture" class="btn btn-danger">Capture!</button>
-            <button id="attack" class="btn btn-danger">Attack!</button>
         </div>
       <%= render "builinglist.html", Map.put(assigns, :action, building_path(@conn, :index)) %>
   		<div class="card-body">

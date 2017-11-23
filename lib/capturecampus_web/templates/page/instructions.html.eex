@@ -1,3 +1,28 @@
-<div>
-  <h1>INSTRUCTIONS</h1>
-</div>
+<div class="container-fluid">
+ 	<div class="card">
+    	<img class="card-img-top" src="http://cdn.lightgalleries.net/4bd5ebfc5c408/images/Commercial_Northeastern_080-2.jpg" alt="Northeastern" alt="Responsive image">
+  		<div class="card-body">
+    		<h4 class="card-title" style="text-align: center;">How To Play!</h4>
+    		<p class="card-text" style="text-align: center;">Welcome to the capture the flag game for new Northeastern students!</p>
+  		</div>
+  		<div class="card-body" style="margin: auto;">
+    			<p class="card-text">
+            <b>Step 1:</b>Start a new game by: 'clicking the start game button'
+          </p>
+          <p class="card-text">
+            <b>Step 2:</b>Join an ongoing game by: 'clicking the join game button'
+          </p>
+          <p class="card-text">
+            <b>Step 3:</b>Don't forget to save the invite code!
+          </p>
+          <p class="card-text">
+            <b>Step 4:</b>if you are joining remember to ask the creator of the game for the correct code!
+          </p>
+          <p class="card-text">
+            <b>Step 5:</b>Congrats! You are now in the game. To win your team must capture more buildings than the other team!
+          </p>
+          <p class="card-text">
+            <b>Step 6:</b>To capture a building please stand next to a building on the list and hit 'capture'. Please note that it takes one minute to capture a building sucessfully!
+          </p>
+  		</div>
+	</div>
