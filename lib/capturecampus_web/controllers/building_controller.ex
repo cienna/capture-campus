@@ -6,7 +6,7 @@ defmodule CapturecampusWeb.BuildingController do
 
   def index(conn, _params) do
     buildings = Campus.list_buildings()
-    render(conn, "index.html", buildings: buildings)
+    render(conn, :index, buildings: buildings)
   end
 
   def new(conn, _params) do
