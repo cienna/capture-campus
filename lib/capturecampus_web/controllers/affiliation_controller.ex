@@ -6,7 +6,7 @@ defmodule CapturecampusWeb.AffiliationController do
 
   def index(conn, _params) do
     affiliations = Team.list_affiliations()
-    render(conn, "index.html", affiliations: affiliations)
+    render(conn, :index, affiliations: affiliations)
   end
 
   def new(conn, _params) do
